@@ -1,0 +1,52 @@
+@use "stl";
+
+$num: 0;
+@function Squared ($num)
+{
+ @return $num*10;
+}
+ .large
+ {
+    background-color: stl.$bodyColor;
+ }
+
+.bx1
+{
+    background-color: stl.$bx1Color;
+}
+.bx2
+{
+    background-color: stl.$bx2Color;
+}
+.bx3
+{
+    background-color: stl.$bx3Color;
+}
+.bx4
+{
+    background-color: stl.$bx4Color;
+}
+.bx5
+{
+    background-color: stl.$bx5Color;
+}
+.large
+{
+    @include stl.largeStyle;
+    .box{
+        @include stl.boxStyle;
+       
+    }
+}
+li
+{
+    font-size: Squared(5)*1px;
+}
+@for $i from 0 to 11
+{
+     ul li:nth-child(#{$i})
+    {
+        background-color: rgb(random(255),
+        random(255),random(255));
+    }
+}
