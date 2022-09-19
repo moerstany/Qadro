@@ -7,8 +7,21 @@ function Test(){
     }
 }
 
-let count=0;
-setInterval(()=>{
-document.querySelector('.box').style =`top:${count++}px;left:${count++}px`;
 
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+
+let arr = document.querySelectorAll('.box');
+setInterval(() => {
+    for (const box of arr) {
+        let left = 0;
+        let top = 0;
+        left = getRndInteger(0, 400);
+        top = getRndInteger(0, 400);
+        box.style = `top:${left}px;left:${top}px`;
+    }
+
+    console.log(count);
 }, 1000);
